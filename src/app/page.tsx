@@ -3,19 +3,24 @@ import { useState } from "react";
 import { login } from "@/lib/api";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("admin@teste.com");
-  const [password, setPassword] = useState("123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [token, setToken] = useState<string | null>(null);
   const [org, setOrg] = useState("nassautec");
   const [error, setError] = useState("");
 
   const doLogin = async () => {
     setError("");
-    try {
-      const res = await login(email, password);
-      setToken(res.token);
-    } catch (e:any) {
-      setError(e.message || "Erro ao logar");
+    if (email === "mim@demin" && password === "admin") {
+      // Master user
+      setToken("master-token"); // Or any other master user indicator
+    } else {
+      try {
+        const res = await login(email, password);
+        setToken(res.token);
+      } catch (e:any) {
+        setError(e.message || "Erro ao logar");
+      }
     }
   };
 
