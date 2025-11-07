@@ -21,7 +21,7 @@ export default function LoginPage() {
 
   return (
     <main className="max-w-xl mx-auto p-6 space-y-4">
-      <h1 className="text-2xl font-semibold">NLQ Front</h1> 1111222233333
+      <h1 className="text-2xl font-semibold">NLQ Front</h1> Alteração de teste
     
       {!token ? (
         <div className="space-y-3">
